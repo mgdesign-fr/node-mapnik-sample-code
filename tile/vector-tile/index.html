@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'/>
+    <title>Tilehut.js Vector Map with Mapbox GL JS</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <style>
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+    </style>
+</head>
+
+<body>
+	<div id='map'></div>
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.7.0/mapbox-gl.js'></script>
+	<script type="text/javascript">
+		// Nota Bene:
+		// Please make sure to serve this file via a webserver as otherwise your browser might not load the external 'style.json' file
+
+        var style = {
+          "version": 7,
+          "sources": {
+            "local_mapnik-example": {
+              "type": "vector",
+              "tiles": ["http://localhost:8000/?z={z}&x={x}&y={y}"]
+            }
+          },
+          "layers": [
+            {
+              "id": "background",
+              "paint": {
+                "background-color": "#d9faff"
+              },
+              "type": "background"
+            },
+            {
+              "source": "local_mapnik-example",
+              "source-layer": "world",
+              "paint": {
+                "fill-color": "#f00",
+                "fill-outline-color": "#000"
+                },
+              "type": "fill"
+            }
+          ]
+        };
+
+		var map = new mapboxgl.Map({
+		    container: 'map',
+		    center: [12, 1],
+		    zoom: 1,
+		    style: style, // stylesheet location (external file) or style object
+		    hash: true	// adds zoom level and coordinates in the url (e.g. http://localhost:8080/#3.84/58.63/43.81)
+		});
+	</script>
+</body>
+</html>

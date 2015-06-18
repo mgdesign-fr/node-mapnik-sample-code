@@ -24,7 +24,7 @@ Examples are arranged into topic directories:
 
 * **render** - Simple map to image renderer example. Start here.
 * **image** - Server that just responds with a single image.
-* **tile** - Example tileservers. Also includes PostGIS example. (see <https://github.com/springmeyer/coalition> for a fuller example with PostGIS) 
+* **tile** - Example tileservers. Also includes PostGIS and VectorTile examples. (see <https://github.com/springmeyer/coalition> for a fuller example with PostGIS) 
 * **wms**  - Example WMS servers (see <https://github.com/mapbox/landspeed.js> for a real WMS server)
 * **memory_datasource** - rendering of native javascript objects using in memory features created up front
 
